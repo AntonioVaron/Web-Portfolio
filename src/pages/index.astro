@@ -1,11 +1,31 @@
 ---
 import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Badge from "../components/Badge.astro"
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Porfolio Antonio Varón">
+	<main>
+		<section class="w-full lg:w-[740px] mx-auto py-44 relative">
+			<img 
+			class="rounded-full w-65 h-65 -mb-15 img-mask-bottom z-5" 
+			src="/foto.png" 
+			alt="web logo"
+			/>
+			<h1 class="relative text-white text-5xl font-bold flex flex-row gap-x-4 pb-10 pl-30 z-10">
+				Hola, Soy Antonio Varón <a
+					href="https://www.linkedin.com/in/antonio-jose-varon-fernandez/"
+					target="_blank"
+					rel="noopener"
+					class="flex justify-center items-center ">
+					<Badge>Disponible para trabajar</Badge>
+				</a>
+			</h1>
+			<h2 class="text-xl text-wrap">
+				<span class="opacity-80">7 años de experiencia como diseñador gráfico, dando un vuelco a mi carrera para centrarme en mi pasión:</span> <b>Programar</b>.
+				<p><span class="opacity-80">Tras varios años de aprendizaje autodidacta y diversos proyectos personales desarrollados <i class="opacity-50">(con otros tantos en camino)</i>
+				me decidí por obtener el título oficial de Desarrollador de Aplicaciones Multiplataforma.</span> De Granada, en España. 
+			</h2>
+		</section>
+	</main>
 </Layout>

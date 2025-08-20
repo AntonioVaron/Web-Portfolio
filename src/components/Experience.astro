@@ -1,0 +1,42 @@
+---
+import type GitHub from "../icons/GitHub.astro"
+import type Badge from "./Badge.astro"
+import ExperienceItem from "./ExperienceItem.astro"
+
+const EXPERIENCE =  [
+    {
+        date: 'Actualmente',
+        company: '// Independiente',
+        title: 'Desarrollador de software por cuenta propia',
+        description: 'Desde hace varios años, mi motivación por la programación me lleva a querer explorar y aprender constantemente al respecto. Tras obtener mi título, cree mi GitHub con una pequeña parte de los proyectos que he ido desarrollando y algunos de los que están en proceso.'
+    },
+    {
+        date: 'Marzo 2025 - Junio 2025',
+        company: '// Zaitec Innova S.L.',
+        title: 'Desarrollador de software y Team Leader',
+        description: 'Gestión del equipo y desarrollo de aplicación simulador para Haier Europe. Reuniones con el cliente semanalmente para direccionar el proyecto.'
+    },
+    {
+        date: 'Febrero 2023 - Marzo 2025',
+        company: '// Diminex S.L.',
+        title: 'Jefe de departamento de Diseño Gráfico y encargado de mantenimiento de los equipos',
+        description: 'Diseño de varias campañas de marketing para diversas empresas. Encargado de la actualización, mantenimiento y solución de problemas de los equipos informáticos. Aumento de la velocidad de producción de las campañas de marketing durante mi desempeño.'
+    },
+    {
+        date: 'Junio 2016 - Octubre 2021',
+        company: '// Montajes Integrales de Impresión Granada S.L.',
+        title: 'Diseñador gráfico, rotulista, modelador 3D y encargado de matenimiento de equipos y maquinaria',
+        description: 'Diseño y montaje de diferentes rótulos e infografía 3D. Realización de protocolos de mantenimiento para la maquinaria de producción y los equipos informáticos. Gracias a mi interveción, la empresa se permitió la adquisición de nuevas maquinas y ampliar su cartera de proyectos y clientes.'
+    }
+]
+---
+<ol class="relative border-s border-gray-200 dark:border-gray-700 ml-3"> 
+    {
+        EXPERIENCE.map(experience => (
+            <li class="mb-10 ms-4">
+                <ExperienceItem {...experience} />
+            </li>
+        ))
+    }                 
+</ol>
+

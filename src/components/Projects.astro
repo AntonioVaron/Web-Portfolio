@@ -1,0 +1,46 @@
+---
+const PROJECTS = [
+    {
+        title: 'Megapoly',
+        description: 'Una versión simplificada del Monopoly que realicé como trabajo de fin de curso del primer año para la asignatura de programación.',
+        github: 'https://github.com/AntonioVaron/Megapoly',
+        image: '../megapoly.webp',
+        tags: ['JAVA', 'SWING']
+    },
+    {
+        title: 'Simulador de presostato',
+        description: 'Este simulador se hizo con el objetivo de usar una escenografía de situación real en un examen de certificado RITE para los técnicos de mantenimiento de Haier Europe.',
+        github: 'https://github.com/AntonioVaron/Simulador_Presostato',
+        image: '../simulador.webp',
+        tags: ['C#', 'Unity 3D']
+    },
+    {
+        title: 'Alerta de lluvia',
+        description: 'Es una de las varias apps que desarrollé durante mi aprendizaje de Python. La he seleccionado como proyecto principal porque me parecía una app muy simple pero que utiliza varios elementos, como la API de openweathermap y Twilio',
+        github: 'https://github.com/AntonioVaron/Rain_Alert',
+        image: '../rainalert.webp',
+        tags: ['Python', 'Twilio']
+    },
+]
+---
+
+{
+    PROJECTS.map(({ title, description, tags, image }) =>
+        <article>
+            <h3 class="text-2xl font-semibold text-blue-300 mb-2">{title}</h3>
+            <p class="text-gray-400 mb-2 text-pretty">{description}</p>
+            <ul class="flex gap-x-4 flex-row">
+                {tags.map(tag =>
+                    (<li>
+                        <span class="flex gap-x-2 rounded-full text-white text-sm py-2 px-2 bg-white/10">
+                            {tag}
+                        </span></li>))}
+            </ul>
+            <img
+                class="rounded shadow-2xl shadow-white/10 mt-6 mb-15"
+                src={image}
+                alt={`Captura de pantalla del proyecto ${title}`}
+            />
+        </article>
+    )
+}

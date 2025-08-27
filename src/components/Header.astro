@@ -1,10 +1,112 @@
-<header class="flex justify-center items-center py-5 w-[1120px] mx-auto">
+---
+const navItems = [
+    {
+        title: "Inicio",
+        label: "top",
+        url: "/#top",
+    },
+    {
+        title: "Experiencia",
+        label: "experience",
+        url: "/#experience",
+    },
+    {
+        title: "Proyectos",
+        label: "projects",
+        url: "/#projects",
+    },
+    {
+        title: "Sobre mí",
+        label: "about-me",
+        url: "/#about-me",
+    },
+]
+---
 
-    <nav class="flex flex-row gap-x-10 opacity-70">
-        <a href="#top">Inicio</a>
-        <a href="#about">Sobre mí</a>
-        <a href="#experience">Experiencia</a>
-        <a href="#projects">Proyectos</a>
-        <a href="#contact">Contacto</a>
+<header class="fixed top-0 z-20 flex justify-center items-center w-full mx-auto mt-2">
+
+    <nav class="flex flex-wrap pl-5 md:text-sm text-xs font-medium rounded-full text-gray-600 dark:text-gray-200 justify-center items-center gap-x-8">
+        <div class="flex gap-x-6 md:mb-0 md:mt-0 mb-1 mt-1">
+            {
+            navItems.map((link) => (
+                <a
+                class="relative block px-2 py-1 transition hover:text-yellow-200 dark:hover:text-yellow-200 hover:bg-white/20 rounded-full"
+                aria-label={link.label}
+                href={link.url}
+                >
+                {link.title}
+                </a>
+            ))
+            }
+        </div>
+        <a href="Varón_Fernández_Antonio_José_ESPAÑOL.pdf" download="Varón_Fernández_Antonio_José_ESPAÑOL.pdf" class="bg-blue-500 hover:bg-blue-400 text-white font-semibold hover:font-bold hover:scale-105 px-4 py-2 rounded-full md:ml-30">Descargar CV</a>
     </nav>
 </header>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const sections = document.querySelectorAll("section[id]")
+    const navItems = document.querySelectorAll("header nav a")
+
+    const callback = (entries: any[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          navItems.forEach((item) => {
+            if (item.getAttribute("aria-label") == entry.target.id) {
+              item.classList.add("text-blue-500", "bg-blue-500/10", "rounded-full", "px-3", "py-1")
+            } else {
+              item.classList.remove("text-blue-500", "bg-blue-500/10", "rounded-full", "px-3", "py-1")
+            }
+          })
+        }
+      })
+    }
+
+    const observer = new IntersectionObserver(callback, {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.3,
+    })
+
+    sections.forEach((section) => {
+      observer.observe(section)
+    })
+
+    // Cleanup function
+    document.onvisibilitychange = () => {
+      if (document.visibilityState === "hidden") {
+        observer.disconnect()
+      } else {
+        sections.forEach((section) => {
+          observer.observe(section)
+        })
+      }
+    }
+  })
+</script>
+
+<style>
+    nav {
+        animation: nav-shadown 1s linear both;
+        animation-timeline: scroll();
+        animation-range: 0 100px;
+    }
+
+    nav {
+        background-color: transparent;
+    }
+
+    /* Keyframes con CSS nativo */
+    @keyframes nav-shadown {
+        0% {
+            background-color: transparent;
+        }
+        to {
+            background-color: rgba(0, 0, 0, 0.5);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+                        0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+    }
+</style>

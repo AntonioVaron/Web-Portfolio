@@ -1,0 +1,25 @@
+---
+import SocialNetwork from "../components/SocialNetwork.astro";
+import MailIcon from "../icons/Mail.astro";
+import LinkedInIcon from "../icons/LinkedIn.astro";
+---
+
+<footer class="rounded-full shadow m-4 md:bg-black/20 backdrop-blur-lg w-full lg:w-[1280px] mx-auto">
+    <div class=" flex w-full mx-auto max-w-screen-xl p-4 md:flex items-center justify-between">
+        <span class="text-xs md:text-sm text-gray-500 sm:text-center dark:text-gray-400 bg-black/20 md:bg-transparent px-4 py-4 rounded-full">
+            Antonio José Varón Fernandez - Desarrollador Software
+        </span>
+        <span class="md:flex gap-x-4">
+            <SocialNetwork href="https://www.linkedin.com/in/antonio-jose-varon-fernandez/" class="">
+                
+                <LinkedInIcon class="size-5 lg:size-6" />
+                    LinkedIn
+            </SocialNetwork>
+            <SocialNetwork id="email" copy={true} class="mt-4 md:mt-0">
+                        
+                <MailIcon class="size-5 lg:size-6" />
+                    antoniojvaron@gmail.com
+            </SocialNetwork>
+        </span>
+    </div>
+</footer>
